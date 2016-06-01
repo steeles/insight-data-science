@@ -21,6 +21,10 @@ http://people.eecs.berkeley.edu/~schasins/papers/identifyingEmotionalPolarity.pd
 
 Alanis Morissette lyrics bot?
 
+# Post Check-In: An automatic parody generator. 
+Input a song title and a topic, search for the lyrics and replace them with relevant words.
+Potential pitfalls: how to validate?
+
 Predicting someone's mood by the music they're listening to?
 
 # alternative ideas
