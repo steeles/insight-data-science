@@ -9,7 +9,7 @@ Possible links- obviously, recommendation algorithm, find songs with similar lyr
 Business questions: What single from a record should we release? 
 Where to advertise for concerts, records, etc?
 What songs should a radio station play at a particular time? (Is ratings information publically available?) Do factors like weather, holiday, the economy, time of day, etc matter?
-Most of the effect of music comes without the lyrics.
+Most of the effect of music comes without the lyrics. Does certain music encourage buying behavior? Employee satisfaction? 
 
 Promotions- reaching the appropriate audience with concerts, parties, promotional appearances, etc?
 Does music correlate with political unrest? Data from SPEED vs Sentiment
