@@ -8,7 +8,7 @@ Possible links- obviously, recommendation algorithm, find songs with similar lyr
 
 Business questions: What single from a record should we release? 
 Where to advertise for concerts, records, etc?
-What songs should a radio station play at a particular time? Is ratings information available? Do factors like weather, holiday, the economy, time of day, etc matter?
+What songs should a radio station play at a particular time? (Is ratings information publically available?) Do factors like weather, holiday, the economy, time of day, etc matter?
 Most of the effect of music comes without the lyrics.
 
 Promotions- reaching the appropriate audience with concerts, parties, promotional appearances, etc?
