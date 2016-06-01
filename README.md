@@ -4,6 +4,11 @@ work for insight
 General Ideas: Music Lyrics and NLP
 Main issue: Show me the money!
 
+# Post Check-In: An automatic parody generator. 
+Input a song title and a topic, search for the lyrics and replace them with relevant words.
+Potential pitfalls: how to validate?
+
+
 Possible links- obviously, recommendation algorithm, find songs with similar lyrics
 
 Business questions: What single from a record should we release? 
@@ -20,10 +25,6 @@ Predict what the markup on a given ticket would be- look at past concerts from t
 http://people.eecs.berkeley.edu/~schasins/papers/identifyingEmotionalPolarity.pdf Janyce Wiebe- sentiment
 
 Alanis Morissette lyrics bot?
-
-# Post Check-In: An automatic parody generator. 
-Input a song title and a topic, search for the lyrics and replace them with relevant words.
-Potential pitfalls: how to validate?
 
 Predicting someone's mood by the music they're listening to?
 
