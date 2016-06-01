@@ -20,3 +20,8 @@ Predict what the markup on a given ticket would be- look at past concerts from t
 http://people.eecs.berkeley.edu/~schasins/papers/identifyingEmotionalPolarity.pdf Janyce Wiebe- sentiment
 
 Alanis Morissette lyrics bot?
+
+Predicting someone's mood by the music they're listening to?
+
+# alternative ideas
+usability? how would i get user data though... maybe just feature utilization?
