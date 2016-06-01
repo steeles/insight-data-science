@@ -12,8 +12,7 @@ What songs should a radio station play at a particular time? (Is ratings informa
 Most of the effect of music comes without the lyrics.
 
 Promotions- reaching the appropriate audience with concerts, parties, promotional appearances, etc?
-Does music correlate with political unrest? Data from SPEED 
-Sentiment
+Does music correlate with political unrest? Data from SPEED vs Sentiment
 
 WHERE IS THE MONEY?
 Predict what the markup on a given ticket would be- look at past concerts from the same or similar artists, geographical, economic conditions, weather? 
