@@ -4,6 +4,10 @@ work for insight
 General Ideas: Music Lyrics and NLP
 Main issue: Show me the money!
 
+Now I can get lyrics! Next step - write a method.
+Then, I will need to put hte lyrics into nltk and try to do parts of speech classification, and build a rhyme scheme structure.
+tomorrow: put words into nltk, try to analyze parts of speech. maybe get to rhymes?
+
 # Post Check-In: An automatic parody generator. 
 Input a song title and a topic, search for the lyrics and replace them with relevant words.
 Potential pitfalls: how to validate?
