@@ -4,6 +4,8 @@ work for insight
 General Ideas: Music Lyrics and NLP
 Main issue: Show me the money!
 
+PIVOT: Predict billboard ratings from song lyrics
+
 Now I can get lyrics! Next step - write a method.
 Then, I will need to put hte lyrics into nltk and try to do parts of speech classification, and build a rhyme scheme structure.
 tomorrow: put words into nltk, try to analyze parts of speech. maybe get to rhymes?
