@@ -4,6 +4,17 @@ work for insight
 General Ideas: Music Lyrics and NLP
 Main issue: Show me the money!
 
+I'm using [X (data source)]
+to develop [deliverable (app, browser extension...] that 
+[verbs (predicts, suggests, forecasts, maps...)] 
+[Y] so that 
+[customer, audience, user...] 
+can [solution (what problem are you solving?)].
+1
+
+
+FIRST THINGS FIRST: Find features of song lyrics
+
 PIVOT: Predict billboard ratings from song lyrics
 
 Now I can get lyrics! Next step - write a method.
