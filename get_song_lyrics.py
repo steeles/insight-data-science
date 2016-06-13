@@ -7,13 +7,61 @@ import re
 
 import pdb 
 
-def get_song_lyrics(song_title=None,*artist):
+def get_song_lyrics(song_title=None,artist=None):
 
     #pdb.set_trace()
     if song_title is None:
         song_title = raw_input("Please enter a song title: ")
         artist = raw_input("Who is the artist?")
         
+    if artist is not None:
+
+        originalTitle = song_title
+        originalArtist = artist
+
+        artist = re.sub("[\.&]","",artist)
+        artist = re.sub(" +","-",artist)
+        artist = re.sub("Featuring","feat",artist)
+        song_title = re.sub("\'","-",song_title)
+        song_title = re.sub(" ","-",song_title)
+
+        url2 = "https://www.musixmatch.com/lyrics/" + artist + \
+                           "/" + song_title
+
+        print url2
+
+        title = originalArtist + ": " + originalTitle
+        
+        response = urllib.urlopen(url2).read()
+        soup = BeautifulSoup(response,'html.parser')
+
+        checkInstrumental = soup.find_all('h2')
+
+        bInstr = re.findall("([A-Z]\w+)",str(checkInstrumental))
+
+
+        if re.findall("Instrumental",bInstr[0]):
+            print "that's an instrumental track!"
+            lyrics=None
+            return lyrics, title
+
+        tmp = soup.find_all("script")
+
+        foo = tmp.text.split("__mxmState = ")[1][:-1]
+        json.loads(foo)
+
+        try:
+            lyrics = re.findall("body\":\"(.*?)\"",response)
+            lyrics = lyrics[0]
+
+            title = originalArtist + ": " + originalTitle
+            print "found lyrics on musixmatch!"
+            return lyrics, title
+        except:
+            print "couldn't find on musixmatch"
+            pass
+
+    print "searching chartlyrics"
     BASE_URL = "http://www.chartlyrics.com/"
     #queryString = "track.search?q_track=" #chartlyrics would return a soap object if i properly queried it
     searchURL = BASE_URL + "search.aspx?q=" + song_title
@@ -33,30 +81,17 @@ def get_song_lyrics(song_title=None,*artist):
     response = requests.get(link);
 
     soup = BeautifulSoup(response.text,'lxml')
-    title = soup.find('head').find('title').text
-
-    # re.findall("u\'(.*)\\t",
-
     lyrics_box = soup.find('p')#.text.strip()
 
     try:
         lyrics = lyrics_box.text.strip()
-    except:
-        if len(artist)<1:
-            artist = rawinput("I\'m having trouble finding that song. Who sings it? \n")
-        
-        try:
-            artist = re.sub("\.","",artist)
-            song_title = re.sub("\'","-",song_title)
-            url2 = "https://www.musixmatch.com/lyrics/" + re.sub(" ","-",artist) + \
-                               "/" + re.sub(" ","-",song_title)
-            response = urllib.urlopen(url2).read()
-            soup = BeautifulSoup(response,'lxml')
-            tmp = soup.find_all("script")
 
-            lyrics = re.findall("body\":\"(.*?)\"",response)
-            title=""
-        except:
+        title = soup.find('head').find('title').text
+
+        # re.findall("u\'(.*)\\t",
+
+    except:
+        
             print "Couldn't find the lyrics. Try another song."
             return
     return lyrics, title
