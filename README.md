@@ -15,6 +15,9 @@ can [solution (what problem are you solving?)].
 
 FIRST THINGS FIRST: Find features of song lyrics
 
+
+If I divided the songs into ngrams, I could make a matrix of how much each ngram rhymes with every other ngram
+
 PIVOT: Predict billboard ratings from song lyrics
 
 Now I can get lyrics! Next step - write a method.

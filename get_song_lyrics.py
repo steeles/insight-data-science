@@ -45,14 +45,24 @@ def get_song_lyrics(song_title=None,artist=None):
             lyrics=None
             return lyrics, title
 
-        tmp = soup.find_all("script")
+        scripts = soup.find_all("script")
 
-        foo = tmp.text.split("__mxmState = ")[1][:-1]
-        json.loads(foo)
+        for script in scripts:
+            tmp = script.text.split("__mxmState = ")
+            if len(tmp)>1:
+                data = tmp[1][:-1]
+                jsdata = json.loads(data)
+                break
+
+
+        
 
         try:
-            lyrics = re.findall("body\":\"(.*?)\"",response)
-            lyrics = lyrics[0]
+            lyrics = jsdata['page']['lyrics']['lyrics']['body']
+
+
+            # lyrics = re.findall("body\":\"(.*?)\"",response)
+            # lyrics = lyrics[0]
 
             title = originalArtist + ": " + originalTitle
             print "found lyrics on musixmatch!"
