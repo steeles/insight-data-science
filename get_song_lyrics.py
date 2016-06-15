@@ -73,37 +73,37 @@ def get_song_lyrics(song_title=None,artist=None):
                 print "couldn't find on musixmatch"
                 pass
 
-        print "searching chartlyrics"
-        BASE_URL = "http://www.chartlyrics.com/"
-        #queryString = "track.search?q_track=" #chartlyrics would return a soap object if i properly queried it
-        searchURL = BASE_URL + "search.aspx?q=" + song_title
+    print "searching chartlyrics"
+    BASE_URL = "http://www.chartlyrics.com/"
+    #queryString = "track.search?q_track=" #chartlyrics would return a soap object if i properly queried it
+    searchURL = BASE_URL + "search.aspx?q=" + song_title
+    
+    fullurl = quote_plus(searchURL, safe="%/:=&?~#!+$,;'@()*[]")
+    #fullurl = quote(searchURL, safe="%/:=&?~#!+$,;'@()*[]")
+
+    response = requests.get(fullurl)
+    soup = BeautifulSoup(response.text,'lxml')
+
+    tmp = soup.find_all('a')
+    song_link = tmp[5];
+
+    # i could also do soup.find('table')
+
+    link = urljoin(BASE_URL, song_link['href'])
+    response = requests.get(link);
+
+    soup = BeautifulSoup(response.text,'lxml')
+    lyrics_box = soup.find('p')#.text.strip()
+
+    try:
+        lyrics = lyrics_box.text.strip()
+
+        title = soup.find('head').find('title').text
+
+        # re.findall("u\'(.*)\\t",
+
+    except:
         
-        fullurl = quote_plus(searchURL, safe="%/:=&?~#!+$,;'@()*[]")
-        #fullurl = quote(searchURL, safe="%/:=&?~#!+$,;'@()*[]")
-
-        response = requests.get(fullurl)
-        soup = BeautifulSoup(response.text,'lxml')
-
-        tmp = soup.find_all('a')
-        song_link = tmp[5];
-
-        # i could also do soup.find('table')
-
-        link = urljoin(BASE_URL, song_link['href'])
-        response = requests.get(link);
-
-        soup = BeautifulSoup(response.text,'lxml')
-        lyrics_box = soup.find('p')#.text.strip()
-
-        try:
-            lyrics = lyrics_box.text.strip()
-
-            title = soup.find('head').find('title').text
-
-            # re.findall("u\'(.*)\\t",
-
-        except:
-            
-                print "Couldn't find the lyrics. Try another song."
-                return
-        return lyrics, title, link
+            print "Couldn't find the lyrics. Try another song."
+            return
+    return lyrics, title, link
