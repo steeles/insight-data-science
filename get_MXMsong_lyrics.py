@@ -13,16 +13,27 @@ def get_MXMsong_lyrics(song_title=None, artist=None):
     originalTitle = song_title
     originalArtist = artist
 
+
     artist = re.sub("[\.&!]","",artist)
     artist = re.sub("[ +]","-",artist)
     artist = re.sub("Featuring","feat",artist)
-    song_title = re.sub("\'","-",song_title)
-    song_title = re.sub(" ","-",song_title)
+    
+    if originalArtist is 'P!nk':
+        artist = 'P-nk-2'
+        
+    if originalArtist is 'Zayn':
+        artist = 'ZAYN-3'
+        
+    
+
+        # use escapes
+    song_title = re.sub("[\ .]'","-",song_title)
+    song_title = re.sub("[\$\&]","",song_title)
 
     url2 = "https://www.musixmatch.com/lyrics/" + artist + \
                        "/" + song_title
 
-    print url2
+    #print url2
 
 
     response = urllib.urlopen(url2).read()
@@ -36,6 +47,8 @@ def get_MXMsong_lyrics(song_title=None, artist=None):
         if len(tmp)>1:
             data = tmp[1][:-1]
             jsdata = json.loads(data)
-    lyrics = jsdata['page']['lyrics']['lyrics']['body']
-
+    try:
+        lyrics = jsdata['page']['lyrics']['lyrics']['body']
+    except:
+        lyrics = None    
     return lyrics, url
